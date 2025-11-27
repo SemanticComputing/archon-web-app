@@ -78,7 +78,18 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 250
+            "minWidth": 250,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "image",
+            "valueType": "image",
+            "previewImageHeight": 100,
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": false,
+            "numberedList": false,
+            "hideHeader": false
         },
         {
             "id": "visualElement",
@@ -106,6 +117,24 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 150
+        },
+        {
+            "id": "county",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 150
+        },
+        {
+            "id": "weight",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
         }
     ],
     "facets": {

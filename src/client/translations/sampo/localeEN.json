@@ -348,8 +348,8 @@
           "label": "Manuscript production date",
           "description": "The date(s) when the manuscript(s) in which the Work can be found were written. Multiple production dates may appear for a single manuscript, when there are discrepancies between the contributing data source or when the precise date is uncertain."
         },
-        "collection": {
-          "label": "Collection",
+        "weight": {
+          "label": "Weight",
           "description": "The specific collection(s) of manuscripts in which a Work can be found."
         },
         "source": {

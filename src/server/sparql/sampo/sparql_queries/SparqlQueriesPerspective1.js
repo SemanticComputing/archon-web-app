@@ -24,7 +24,19 @@ export const ampullaeProperties = `
       ?id archon:has_design_element/archon:has_visual_item ?visualElement__id .
       ?visualElement__id skos:prefLabel ?visualElement__prefLabel .
     }
+    UNION
+    {
+      ?id crm:P43_has_dimension/crm:P2_has_type archon:weight .
+      ?id crm:P43_has_dimension/crm:P90_has_value ?weight .
+    }
+    UNION
+    {
+      ?id archon:has_image ?image__id .
+      ?id archon:has_image ?image__url .
+      ?id archon:has_image ?image__description .
+    }
 `
+
 
 export const knowledgeGraphMetadataQuery = `
   SELECT * 
