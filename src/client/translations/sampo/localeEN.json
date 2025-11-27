@@ -305,8 +305,8 @@
       }
     },
     "perspective1": {
-      "label": "Perspective 1",
-      "facetResultsType": "works",
+      "label": "Ampullae",
+      "facetResultsType": "objects",
       "shortDescription": "Perspective 1 description",
       "longDescription": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Use this perspective to access data related to Works. The MMM data model follows the <a href='https://www.ifla.org/publications/node/11240' target='_blank' rel='noopener noreferrer'>FRBRoo</a> definition of a work, which refers to “distinct concepts or combinations of concepts identified in artistic and intellectual expressions.” Works contain title and author information. If two or more source datasets include the same Work and this has been verified, the information from the source datasets has been merged into one Work. See <a href=\"/instructions\">instructions</a> for using the filters. The result view can be selected using the tabs: </p> <ul class=\"MuiTypography-root MuiTypography-body1\"> <li> <strong>TABLE</STRONG> view gives you a list of specific works, and the manuscripts and manuscript collections in which they can be found. </li> <li> <strong>EXPORT</strong> the SPARQL query used to generate the result table view into YASGUI query editor. </li> </ul>",
       "instancePage": {
@@ -323,21 +323,26 @@
           "description": "The name or title of the Work.",
           "textFacetInputPlaceholder": "Search..."
         },
-        "author": {
-          "label": "Possible author",
+        "textSearch": {
+          "label": "Text search",
+          "description": "Text search.",
+          "textFacetInputPlaceholder": "Search..."
+        },
+        "visualElement": {
+          "label": "Visual element",
           "description": "The author(s) associated with the Work. Because of the structure of entries in the Schoenberg Database, the authors shown as being associated with a Work may actually be associated with other Works in the same manuscript instead."
         },
-        "language": {
-          "label": "Language",
+        "parish": {
+          "label": "Parish",
           "description": "The language in which a Work is written in the manuscript (i.e., an “Expression” of a Work). One manuscript may contain multiple languages."
         },
-        "expression": {
-          "label": "Expression",
+        "county": {
+          "label": "County",
           "description": "The expression(s) of the Work."
         },
-        "manuscript": {
-          "label": "Manuscript",
-          "description": "The specific manuscript(s) in which the Work can be found."
+        "findLocation": {
+          "label": "Find location",
+          "description": ""
         },
         "productionTimespan": {
           "label": "Manuscript production date",
