@@ -31,6 +31,20 @@ export const ampullaeProperties = `
     }
     UNION
     {
+      ?id crm:P43_has_dimension/crm:P2_has_type archon:length .
+      ?id crm:P43_has_dimension/crm:P90_has_value ?length .
+    }
+    UNION
+    {
+      ?id crm:P43_has_dimension/crm:P2_has_type archon:width .
+      ?id crm:P43_has_dimension/crm:P90_has_value ?with .
+    }
+    UNION
+    {
+      ?id archon:description ?description .
+    }
+    UNION
+    {
       ?id archon:has_image ?image__id .
       ?id archon:has_image ?image__url .
       ?id archon:has_image ?image__description .
@@ -50,5 +64,18 @@ export const knowledgeGraphMetadataQuery = `
     ?databaseDump__id skos:prefLabel ?databaseDump__prefLabel ;
                       mmm-schema:data_provider_url ?databaseDump__dataProviderUrl ;
                       dct:modified ?databaseDump__modified .
+  }
+`
+
+export const findsPlacesQuery = `
+  SELECT DISTINCT ?id ?lat ?long ?markerColor
+  (1 as ?instanceCount) # for heatmap
+  WHERE {
+    <FILTER>
+    ?id archon:found_at_location/archon:has_coordinates/archon:lat_coordinates ?lat .
+    ?id archon:found_at_location/archon:has_coordinates/archon:long_coordinates ?long .
+
+    BIND("red" AS ?markerColor)
+
   }
 `

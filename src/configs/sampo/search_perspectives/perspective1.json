@@ -1,13 +1,13 @@
 {
     "id": "perspective1",
     "endpoint": {
-        "url": "http://localhost:3039/ds/sparql",
-        "useAuth": false,
+        "url": "http://ldf.fi/archon/sparql",
+        "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
     "sparqlQueriesFile": "SparqlQueriesPerspective1.js",
-    "baseURI": "http://ldf.fi/mmm",
-    "URITemplate": "<BASE_URI>/work/<LOCAL_ID>",
+    "baseURI": "http://ldf.fi/archon/ampullae",
+    "URITemplate": "<BASE_URI>/<LOCAL_ID>",
     "facetClass": "archon:Archaeological_object",
     "frontPageImage": "main_page/works-452x262.jpg",
     "searchMode": "faceted-search",
@@ -48,17 +48,53 @@
                 }
             }
         },
-        "export": {
+        "findsPlaces": {
             "tabID": 1,
-            "component": "Export",
-            "tabPath": "export",
-            "tabIcon": "CloudDownload",
-            "resultClass": "perspective1",
-            "facetClass": "perspective1"
+            "tabPath": "map",
+            "tabIcon": "AddLocation",
+            "component": "LeafletMap",
+            "showInstanceCountInClusters": false,
+            "showExternalLayers": true,
+            "customMapControl": true,
+            "sparqlQuery": "findsPlacesQuery",
+            "filterTarget": "id",
+            "facetClass": "perspective1",
+            "resultMapper": "mapPlaces",
+            "instanceConfig": {
+                "propertiesQueryBlock": "ampullaeProperties",
+                "createPopUpContent": "createPopUpContentFindSampo"
+            }
+        },
+        "findsPlacesHeatmap": {
+            "tabID": 2,
+            "tabPath": "heatmap",
+            "tabIcon": "BubbleChart",
+            "component": "Deck",
+            "layerType": "heatmapLayer",
+            "sparqlQuery": "findsPlacesQuery",
+            "facetClass": "perspective1",
+            "filterTarget": "id",
+            "resultMapper": "mapPlaces"
         },
         "knowledgeGraphMetadata": {
             "sparqlQuery": "knowledgeGraphMetadataQuery",
             "resultMapper": "makeObjectList"
+        }
+    },
+    "maps": {
+        "findsPlaces": {
+            "center": [
+                51.184809,
+                0.314050
+            ],
+            "zoom": 5
+        },
+        "findsPlacesHeatmap": {
+            "center": [
+                51.184809,
+                0.314050
+            ],
+            "zoom": 4
         }
     },
     "properties": [
@@ -78,8 +114,7 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 250,
-            "onlyOnInstancePage": true
+            "minWidth": 250
         },
         {
             "id": "image",
@@ -134,6 +169,34 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "width",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "length",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "description",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
             "minWidth": 100
         }
     ],

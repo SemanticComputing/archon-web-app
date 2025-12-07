@@ -352,6 +352,18 @@
           "label": "Weight",
           "description": "The specific collection(s) of manuscripts in which a Work can be found."
         },
+        "width": {
+          "label": "Width",
+          "description": "The specific collection(s) of manuscripts in which a Work can be found."
+        },
+        "lenght": {
+          "label": "Length",
+          "description": "The specific collection(s) of manuscripts in which a Work can be found."
+        },
+        "description": {
+          "label": "Description",
+          "description": "The specific collection(s) of manuscripts in which a Work can be found."
+        },
         "source": {
           "label": "Source",
           "description": "The source database(s) (Schoenberg, Bibale, and Bodleian) that the Work occurs in. Click on the result table link to view the original record on the source’s website."
