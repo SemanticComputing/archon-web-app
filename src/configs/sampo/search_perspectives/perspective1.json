@@ -238,13 +238,6 @@
         }
     ],
     "facets": {
-        "textSearch": {
-            "containerClass": "one",
-            "facetType": "text",
-            "filterType": "textFilter",
-            "sortByPredicate": "skos:prefLabel",
-            "textQueryProperty": "skos:prefLabel"
-        },
         "findLocation": {
             "containerClass": "ten",
             "facetType": "hierarchical",
