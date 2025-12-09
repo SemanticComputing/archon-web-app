@@ -1,14 +1,14 @@
 {
   "languageLabel": "English",
   "html": {
-    "title": "Sampo-UI – A framework for building user interfaces for semantic portals",
+    "title": "Arch-ON",
     "description": "The Sampo-UI framework makes it possible to create highly customizable, user-friendly, and responsive user interfaces using current state-of-the-art JavaScript libraries and data from SPARQL endpoints."
   },
   "appTitle": {
     "short": "Sampo-UI",
     "mobile": "S-UI",
     "long": "&nbsp; &nbsp; Sampo-UI &nbsp; &nbsp;",
-    "subheading": "\"Here to forge for us the Sampo, Hammer us the lid in colors\""
+    "subheading": ""
   },
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
   "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",
