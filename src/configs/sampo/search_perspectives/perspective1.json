@@ -48,14 +48,60 @@
                 }
             }
         },
-        "findsPlaces": {
+        "findsByProperty": {
             "tabID": 1,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "pie_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "perspective1",
+            "dropdownForResultClasses": true,
+            "defaultResultClass": "findsByCounty",
+            "resultClasses": {
+                "findsByCounty": {
+                    "sparqlQuery": "findsByCounty",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                                                {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                },
+                "findsByVisual": {
+                    "sparqlQuery": "findsByVisual",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.001,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                }
+            }
+        },
+        "findsPlaces": {
+            "tabID": 2,
             "tabPath": "map",
             "tabIcon": "AddLocation",
             "component": "LeafletMap",
             "showInstanceCountInClusters": false,
-            "showExternalLayers": true,
-            "customMapControl": true,
+            "showExternalLayers": false,
+            "customMapControl": false,
             "sparqlQuery": "findsPlacesQuery",
             "filterTarget": "id",
             "facetClass": "perspective1",
@@ -66,7 +112,7 @@
             }
         },
         "findsPlacesHeatmap": {
-            "tabID": 2,
+            "tabID": 3,
             "tabPath": "heatmap",
             "tabIcon": "BubbleChart",
             "component": "Deck",
@@ -154,15 +200,6 @@
             "minWidth": 150
         },
         {
-            "id": "county",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 150
-        },
-        {
             "id": "weight",
             "valueType": "string",
             "makeLink": false,
@@ -221,6 +258,19 @@
             "sortDirection": "desc"
         },
         "visualElement": {
+            "barChartButton": true,
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "pieChartButton": true,
+            "predicate": "archon:has_design_element/archon:has_visual_item",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "archon:has_design_element/archon:has_visual_item/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "visualElementB": {
             "barChartButton": true,
             "containerClass": "ten",
             "facetType": "list",

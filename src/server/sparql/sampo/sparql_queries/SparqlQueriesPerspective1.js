@@ -26,18 +26,18 @@ export const ampullaeProperties = `
     }
     UNION
     {
-      ?id crm:P43_has_dimension/crm:P2_has_type archon:weight .
+      ?id crm:P43_has_dimension/crm:P2_has_type archon:Weight .
       ?id crm:P43_has_dimension/crm:P90_has_value ?weight .
     }
     UNION
     {
-      ?id crm:P43_has_dimension/crm:P2_has_type archon:length .
+      ?id crm:P43_has_dimension/crm:P2_has_type archon:Length .
       ?id crm:P43_has_dimension/crm:P90_has_value ?length .
     }
     UNION
     {
-      ?id crm:P43_has_dimension/crm:P2_has_type archon:width .
-      ?id crm:P43_has_dimension/crm:P90_has_value ?with .
+      ?id crm:P43_has_dimension/crm:P2_has_type archon:Width .
+      ?id crm:P43_has_dimension/crm:P90_has_value ?width .
     }
     UNION
     {
@@ -78,4 +78,50 @@ export const findsPlacesQuery = `
     BIND("red" AS ?markerColor)
 
   }
+`
+
+export const findsByVisual = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a archon:Archaeological_object .
+      ?find archon:has_design_element/archon:has_visual_item ?category .
+      ?category skos:prefLabel ?prefLabel .
+    }
+    UNION
+    {
+      ?find a archon:Archaeological_object .
+      FILTER NOT EXISTS {
+        ?find archon:has_design_element/archon:has_visual_item [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const findsByCounty = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a archon:Archaeological_object .
+      ?find archon:found_at_location/archon:situated_at/archon:situated_at ?category .
+      ?category skos:prefLabel ?prefLabel .
+    }
+    UNION
+    {
+      ?find a archon:Archaeological_object .
+      FILTER NOT EXISTS {
+        ?find archon:found_at_location/archon:situated_at/archon:situated_at [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
 `

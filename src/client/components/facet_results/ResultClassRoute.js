@@ -121,7 +121,7 @@ const ResultClassRoute = props => {
     case 'LeafletMap': {
       const {
         facetID = null,
-        mapMode = 'cluster',
+        mapMode = 'marker',
         pageType = 'facetResults',
         showExternalLayers = false,
         customMapControl = false,
