@@ -11,13 +11,13 @@ export const ampullaeProperties = `
     }
     UNION
     {
-      ?id archon:found_at_location/archon:situated_at ?parish__id .
-      ?parish__id skos:prefLabel ?parish__prefLabel .
+      ?id archon:found_at_location/archon:situated_at ?county__id .
+      ?county__id skos:prefLabel ?county__prefLabel .
       #BIND(CONCAT("/manuscripts/page/", REPLACE(STR(?manuscript__id), "^.*\\\\/(.+)", "$1")) AS ?manuscript__dataProviderUrl)
-      OPTIONAL {
-        ?parish__id archon:situated_at ?county__id .
-        ?county__id skos:prefLabel ?county__prefLabel .
-      }
+      #OPTIONAL {
+      #  ?parish__id archon:situated_at ?county__id .
+      #  ?county__id skos:prefLabel ?county__prefLabel .
+      #}
     }
     UNION
     {
@@ -26,18 +26,37 @@ export const ampullaeProperties = `
     }
     UNION
     {
-      ?id crm:P43_has_dimension/crm:P2_has_type archon:Weight .
-      ?id crm:P43_has_dimension/crm:P90_has_value ?weight .
+      ?id archon:has_completeness_overall_shape ?completeness__id .
+      ?completeness__id skos:prefLabel ?completeness__prefLabel .
     }
     UNION
     {
-      ?id crm:P43_has_dimension/crm:P2_has_type archon:Length .
-      ?id crm:P43_has_dimension/crm:P90_has_value ?length .
+      ?id archon:has_general_shape ?spencerType__id .
+      ?spencerType__id skos:prefLabel ?spencerType__prefLabel .
     }
     UNION
     {
-      ?id crm:P43_has_dimension/crm:P2_has_type archon:Width .
-      ?id crm:P43_has_dimension/crm:P90_has_value ?width .
+      ?id archon:has_dating ?dating__id .
+      ?dating__id archon:from_date ?fromDate .
+      ?dating__id archon:to_date ?toDate .
+    }
+    UNION
+    {
+      ?id crm:P43_has_dimension ?weight__id .
+      ?weight__id crm:P2_has_type  archon:Weight .
+      ?weight__id crm:P90_has_value ?weight .
+    }
+    UNION
+    {
+      ?id crm:P43_has_dimension ?length__id .
+      ?length__id crm:P2_has_type archon:Length .
+      ?length__id crm:P90_has_value ?length .
+    }
+    UNION
+    {
+      ?id crm:P43_has_dimension ?width__id .
+      ?width__id crm:P2_has_type archon:Width .
+      ?width__id crm:P90_has_value ?width .
     }
     UNION
     {
@@ -103,20 +122,66 @@ export const findsByVisual = `
   ORDER BY DESC(?instanceCount)
 `
 
-export const findsByCounty = `
+export const findsByCompleteness = `
   SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
   WHERE {
     <FILTER>
     {
       ?find a archon:Archaeological_object .
-      ?find archon:found_at_location/archon:situated_at/archon:situated_at ?category .
+      ?find archon:has_completeness_overall_shape ?category .
       ?category skos:prefLabel ?prefLabel .
     }
     UNION
     {
       ?find a archon:Archaeological_object .
       FILTER NOT EXISTS {
-        ?find archon:found_at_location/archon:situated_at/archon:situated_at [] .
+        ?find archon:has_completeness_overall_shape [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const findsBySpencer = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a archon:Archaeological_object .
+      ?find archon:has_general_shape ?category .
+      ?category skos:prefLabel ?prefLabel .
+    }
+    UNION
+    {
+      ?find a archon:Archaeological_object .
+      FILTER NOT EXISTS {
+        ?find archon:has_general_shape [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const findsByCounty = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a archon:Archaeological_object .
+      ?find archon:found_at_location/archon:situated_at ?category .
+      ?category skos:prefLabel ?prefLabel .
+    }
+    UNION
+    {
+      ?find a archon:Archaeological_object .
+      FILTER NOT EXISTS {
+        ?find archon:found_at_location/archon:situated_at [] .
       }
       BIND("Unknown" as ?category)
       BIND("Unknown " as ?prefLabel)

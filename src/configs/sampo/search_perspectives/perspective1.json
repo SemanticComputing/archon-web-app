@@ -75,11 +75,45 @@
                         }
                     ]
                 },
+                "findsBySpencer": {
+                    "sparqlQuery": "findsBySpencer",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                                                {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                },
+                "findsByCompleteness": {
+                    "sparqlQuery": "findsByCompleteness",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                                                {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                },
                 "findsByVisual": {
                     "sparqlQuery": "findsByVisual",
                     "filterTarget": "find",
                     "resultMapper": "mapPieChart",
-                    "sliceVisibilityThreshold": 0.001,
+                    "sliceVisibilityThreshold": 0.01,
                     "dropdownForChartTypes": "true",
                     "chartTypes": [
                         {
@@ -182,13 +216,22 @@
             "minWidth": 250
         },
         {
-            "id": "parish",
+            "id": "completeness",
             "valueType": "object",
-            "makeLink": true,
-            "externalLink": true,
+            "makeLink": false,
+            "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 150
+            "minWidth": 250
+        },
+        {
+            "id": "spencerType",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 250
         },
         {
             "id": "county",
@@ -227,6 +270,24 @@
             "minWidth": 100
         },
         {
+            "id": "fromDate",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "toDate",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
             "id": "description",
             "valueType": "string",
             "makeLink": false,
@@ -240,14 +301,36 @@
     "facets": {
         "findLocation": {
             "containerClass": "ten",
-            "facetType": "hierarchical",
+            "facetType": "list",
             "filterType": "uriFilter",
             "parentProperty": "archon:situated_at",
-            "predicate": "archon:found_at_location/archon:situated_at",
+            "predicate": "archon:found_at_location",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "archon:found_at_location/arcohon:situated_at/skos:prefLabel",
+            "sortByPredicate": "archon:found_at_location/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "completeness": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "archon:has_completeness_overall_shape",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "archon:has_completeness_overall_shapen/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "spencerType": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "archon:has_general_shape",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "archon:has_general_shape/skos:prefLabel",
             "sortDirection": "desc"
         },
         "visualElement": {

@@ -118,7 +118,9 @@
     "bar": "Bar chart",
     "resultClasses": {
       "findsByCounty": "County",
-      "findsByVisual": "Visual element"
+      "findsByVisual": "Visual element",
+      "findsBySpencer": "Spencer type",
+      "findsByCompleteness": "Completeness"
     },
     "findsByWidthXaxis": "Leveys (mm)",
     "findsByLengthXaxis": "Pituus (mm)",
@@ -356,12 +358,32 @@
           "label": "County",
           "description": ""
         },
+        "spencerType": {
+          "label": "Spender type",
+          "description": ""
+        },
+        "completeness": {
+          "label": "Completeness",
+          "description": ""
+        },
         "findLocation": {
           "label": "Find location",
           "description": ""
         },
         "productionTimespan": {
           "label": "Manuscript production date",
+          "description": ""
+        },
+        "fromDate": {
+          "label": "Earliest year",
+          "description": ""
+        },
+        "toDate": {
+          "label": "Latest year",
+          "description": ""
+        },
+        "image": {
+          "label": "Image",
           "description": ""
         },
         "weight": {
