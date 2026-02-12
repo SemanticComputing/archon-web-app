@@ -156,6 +156,69 @@
             "filterTarget": "id",
             "resultMapper": "mapPlaces"
         },
+        "findsByNumericProperty": {
+            "tabID": 4,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "line_chart",
+            "tabIcon": "ShowChart",
+            "facetClass": "perspective1",
+            "dropdownForResultClasses": true,
+            "defaultResultClass": "findsByWeight",
+            "resultClasses": {
+                "findsByWeight": {
+                    "sparqlQuery": "findsByWeightQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapLineChart",
+                    "createChartData": "createSingleLineChartData",
+                    "xaxisType": "numeric",
+                    "xaxisTitle": "",
+                    "xaxisTickAmount": 30,
+                    "yaxisTitle": "",
+                    "seriesTitle": "",
+                    "stroke": {
+                        "width": 2
+                    },
+                    "resultMapperConfig": {
+                        "fillEmptyValues": true
+                    }
+                },
+                 "findsByWidth": {
+                    "sparqlQuery": "findsByWeightQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapLineChart",
+                    "createChartData": "createSingleLineChartData",
+                    "xaxisType": "numeric",
+                    "xaxisTitle": "",
+                    "xaxisTickAmount": 30,
+                    "yaxisTitle": "ä",
+                    "seriesTitle": "",
+                    "stroke": {
+                        "width": 2
+                    },
+                    "resultMapperConfig": {
+                        "fillEmptyValues": true
+                    }
+                },
+                "findsByLength": {
+                    "sparqlQuery": "findsByLengthQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapLineChart",
+                    "createChartData": "createSingleLineChartData",
+                    "xaxisType": "numeric",
+                    "xaxisTitle": "",
+                    "xaxisTickAmount": 30,
+                    "yaxisTitle": "",
+                    "seriesTitle": "",
+                    "stroke": {
+                        "width": 2
+                    },
+                    "resultMapperConfig": {
+                        "fillEmptyValues": true
+                    }
+                }
+            }
+        },
         "knowledgeGraphMetadata": {
             "sparqlQuery": "knowledgeGraphMetadataQuery",
             "resultMapper": "makeObjectList"

@@ -190,3 +190,50 @@ export const findsByCounty = `
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
 `
+
+export const findsByLengthQuery = `
+  SELECT ?category
+  (COUNT(DISTINCT ?find) as ?count)
+  WHERE {
+    <FILTER>
+    ?find crm:P43_has_dimension ?dimension .
+    ?find a archon:Archaeological_object .
+    ?dimension crm:P2_has_type archon:Length .
+    ?dimension crm:P90_has_value ?decimal_value .
+    BIND(xsd:integer(ROUND(?decimal_value)) as ?category)
+  }
+  GROUP BY ?category
+  ORDER BY ?category
+`
+
+
+export const findsByWeightQuery = `
+  SELECT ?category
+  (COUNT(DISTINCT ?find) as ?count)
+  WHERE {
+    <FILTER>
+    ?find crm:P43_has_dimension ?dimension .
+    ?find a archon:Archaeological_object .
+    ?dimension crm:P2_has_type archon:Weight .
+    ?dimension crm:P90_has_value ?decimal_value .
+    BIND(xsd:integer(ROUND(?decimal_value)) as ?category)
+  }
+  GROUP BY ?category
+  ORDER BY ?category
+`
+
+
+export const findsByWidthQuery = `
+  SELECT ?category
+  (COUNT(DISTINCT ?find) as ?count)
+  WHERE {
+    <FILTER>
+    ?find crm:P43_has_dimension ?dimension .
+    ?find a archon:Archaeological_object .
+    ?dimension crm:P2_has_type archon:Width .
+    ?dimension crm:P90_has_value ?decimal_value .
+    BIND(xsd:integer(ROUND(?decimal_value)) as ?category)
+  }
+  GROUP BY ?category
+  ORDER BY ?category
+`

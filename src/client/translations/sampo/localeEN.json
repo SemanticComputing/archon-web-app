@@ -95,6 +95,7 @@
     "emloSentReceived": "Sent and received letters",
     "download": "download",
     "recommendations": "recommendations",
+    "line_chart": "line chart",
     "share": "share"
   },
   "table": {
@@ -120,7 +121,10 @@
       "findsByCounty": "County",
       "findsByVisual": "Visual element",
       "findsBySpencer": "Spencer type",
-      "findsByCompleteness": "Completeness"
+      "findsByCompleteness": "Completeness",
+      "findsByLength": "Length",
+      "findsByWeight": "Weight",
+      "findsByWidth": "Width"
     },
     "findsByWidthXaxis": "Leveys (mm)",
     "findsByLengthXaxis": "Pituus (mm)",
