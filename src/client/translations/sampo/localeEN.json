@@ -370,6 +370,18 @@
           "label": "Find location",
           "description": ""
         },
+        "damage": {
+          "label": "Damage",
+          "description": ""
+        },
+        "damageLocation": {
+          "label": "Damage location",
+          "description": ""
+        },
+        "modification": {
+          "label": "Modification",
+          "description": ""
+        },
         "productionTimespan": {
           "label": "Manuscript production date",
           "description": ""

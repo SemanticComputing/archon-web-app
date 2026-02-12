@@ -333,6 +333,39 @@
             "sortByPredicate": "archon:has_general_shape/skos:prefLabel",
             "sortDirection": "desc"
         },
+        "damage": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "archon:has_damage/archon:has_type",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "archon:has_damage/archon:has_type/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "damageLocation": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "archon:has_damage/archon:has_location",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "archon:has_damage/archon:has_location/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "modification": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "archon:has_modification/archon:has_type",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "archon:has_modification/archon:has_type/skos:prefLabel",
+            "sortDirection": "desc"
+        },
         "visualElement": {
             "barChartButton": true,
             "containerClass": "ten",
