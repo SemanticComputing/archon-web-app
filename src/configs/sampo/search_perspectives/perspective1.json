@@ -388,18 +388,22 @@
     ],
     "facets": {
         "findLocation": {
+            "barChartButton": true,
+            "pieChartButton": true,
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
             "parentProperty": "archon:situated_at",
-            "predicate": "archon:found_at_location",
+            "predicate": "archon:found_at_location/archon:situated_at",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "archon:found_at_location/skos:prefLabel",
+            "sortByPredicate": "archon:found_at_location/archon:situated_at/skos:prefLabel",
             "sortDirection": "desc"
         },
         "completeness": {
+            "barChartButton": true,
+            "pieChartButton": true,
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
@@ -422,6 +426,8 @@
             "sortDirection": "desc"
         },
         "damage": {
+            "barChartButton": true,
+            "pieChartButton": true,
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
@@ -433,6 +439,8 @@
             "sortDirection": "desc"
         },
         "damageLocation": {
+            "barChartButton": true,
+            "pieChartButton": true,
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
@@ -444,6 +452,8 @@
             "sortDirection": "desc"
         },
         "modification": {
+            "barChartButton": true,
+            "pieChartButton": true,
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
@@ -469,10 +479,10 @@
         },
         "visualElementB": {
             "barChartButton": true,
+            "pieChartButton": true,
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "pieChartButton": true,
             "predicate": "archon:has_design_element/archon:has_visual_item",
             "searchField": true,
             "sortButton": true,
