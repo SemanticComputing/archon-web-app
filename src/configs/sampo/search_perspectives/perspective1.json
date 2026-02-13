@@ -156,8 +156,33 @@
             "filterTarget": "id",
             "resultMapper": "mapPlaces"
         },
-        "findsByNumericProperty": {
+        "aoristicFinds": {
             "tabID": 4,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "aoristic_chart",
+            "tabIcon": "BarChart",
+            "facetClass": "perspective1",
+            "dropdownForResultClasses": true,
+            "defaultResultClass": "findsByAoristicTime50",
+            "resultClasses": {
+                "findsByAoristicTime50": {
+                    "sparqlQuery": "findsByTimeSpansQuery50",
+                    "filterTarget": "find",
+                    "resultMapper": "mapAoristicChart",
+                    "sliceVisibilityThreshold": false,
+                    "dropdownForChartTypes": false,
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartAoristictData"
+                        }
+                    ]
+                }
+            }
+        },
+        "findsByNumericProperty": {
+            "tabID": 5,
             "component": "ApexCharts",
             "doNotRenderOnMount": true,
             "tabPath": "line_chart",

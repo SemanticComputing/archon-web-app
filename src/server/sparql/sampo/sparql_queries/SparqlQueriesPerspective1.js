@@ -237,3 +237,17 @@ export const findsByWidthQuery = `
   GROUP BY ?category
   ORDER BY ?category
 `
+
+export const findsByTimeSpansQuery50 = `
+  SELECT DISTINCT ?find ?earliestYear ?latestYear ?interval
+  WHERE {
+    <FILTER>
+    {
+      ?find a archon:Archaeological_object.
+      ?find archon:has_dating/archon:from_date ?earliestYear .
+      ?find archon:has_dating/archon:to_date ?latestYear .
+      BIND(50 AS ?interval)
+    }
+  }
+  ORDER BY ?earliestYear
+`

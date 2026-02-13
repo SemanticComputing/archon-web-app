@@ -22,7 +22,9 @@ import {
   TrendingDown,
   Tune,
   ArrowForward,
-  Subject
+  Subject,
+  BarChart,
+  LocalFireDepartment
 } from '@mui/icons-material'
 import has from 'lodash'
 
@@ -50,7 +52,9 @@ const MuiIcon = props => {
     TrendingDown: TrendingDown,
     Tune: Tune,
     ArrowForward: ArrowForward,
-    Subject: Subject
+    Subject: Subject,
+    BarChart: BarChart,
+    LocalFireDepartment: LocalFireDepartment
   }
   if (has(MuiIcons, props.iconName)) {
     const MuiIconComponent = MuiIcons[props.iconName]
