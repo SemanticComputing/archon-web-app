@@ -21,6 +21,12 @@ export const ampullaeProperties = `
     }
     UNION
     {
+      ?id skos:exactMatch ?pasLink__id .
+      BIND (?pasLink__id AS ?pasLink__prefLabel )
+      BIND (?pasLink__id AS ?pasLink__dataProviderUrl )
+    }
+    UNION
+    {
       ?id archon:has_design_element/archon:has_visual_item ?visualElement__id .
       ?visualElement__id skos:prefLabel ?visualElement__prefLabel .
     }

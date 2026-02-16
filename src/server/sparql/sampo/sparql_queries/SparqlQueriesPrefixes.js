@@ -23,4 +23,5 @@ export const prefixes = `
   PREFIX semparls: <http://ldf.fi/schema/semparl/>
   PREFIX archon: <http://ldf.fi/schema/archon/>
   
+  
 `

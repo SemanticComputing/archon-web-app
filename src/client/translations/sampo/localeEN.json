@@ -355,6 +355,14 @@
           "label": "Visual element",
           "description": ""
         },
+        "pasLink": {
+          "label": "PAS record",
+          "description": ""
+        },
+        "modificationLocation": {
+          "label": "Modification location",
+          "description": ""
+        },
         "parish": {
           "label": "Parish",
           "description": ""

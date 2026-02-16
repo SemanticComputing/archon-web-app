@@ -267,7 +267,7 @@
     },
     "properties": [
         {
-            "id": "uri",
+            "id": "pasLink",
             "valueType": "object",
             "makeLink": true,
             "externalLink": true,
@@ -425,19 +425,6 @@
             "sortByPredicate": "archon:has_general_shape/skos:prefLabel",
             "sortDirection": "desc"
         },
-        "damage": {
-            "barChartButton": true,
-            "pieChartButton": true,
-            "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "archon:has_damage/archon:has_type",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "archon:has_damage/archon:has_type/skos:prefLabel",
-            "sortDirection": "desc"
-        },
         "damageLocation": {
             "barChartButton": true,
             "pieChartButton": true,
@@ -462,6 +449,19 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "archon:has_modification/archon:has_type/skos:prefLabel",
+            "sortDirection": "desc"
+        },
+        "modificationLocation": {
+            "barChartButton": true,
+            "pieChartButton": true,
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "archon:has_modification/archon:has_location",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "archon:has_modification/archon:has_location/skos:prefLabel",
             "sortDirection": "desc"
         },
         "visualElement": {
