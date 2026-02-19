@@ -387,6 +387,11 @@
         }
     ],
     "facets": {
+        "textSearch": {
+            "containerClass": "one",
+            "facetType": "text",
+            "filterType": "textFilter"
+        },
         "findLocation": {
             "barChartButton": true,
             "pieChartButton": true,
