@@ -238,13 +238,29 @@ const generateIntegerFilter = ({
   } else {
     integerFilter = `?valueAsInteger${facetID} >= ${start} && ?valueAsInteger${facetID} <= ${end}`
   }
-  const filterStr = `
-    ?${filterTarget} ${facetConfig.predicate} ?value${facetID} .
-    ${typecasting}
-    FILTER(
-      ${integerFilter}
-    )
-  `
+  // Quick solution for Archon to fit the data model
+  let filterStr = ''
+  if (facetConfig.resourcePredicate) {
+    filterStr = `
+      ?${filterTarget} ${facetConfig.resourcePredicate} ?resource${facetID} .
+      ?resource${facetID} ${facetConfig.valuePredicate} ?value${facetID} .
+      ?resource${facetID} ${facetConfig.typeConstraint} .
+      ${typecasting}
+      FILTER(
+        ${integerFilter}
+      )
+    `
+  }
+  else {
+    filterStr = `
+      ?${filterTarget} ${facetConfig.predicate} ?value${facetID} .
+      ${typecasting}
+      FILTER(
+        ${integerFilter}
+      )
+    `
+  }
+
   if (inverse) {
     return `
     FILTER NOT EXISTS {

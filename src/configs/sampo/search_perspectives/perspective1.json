@@ -335,7 +335,7 @@
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
-            "sortValues": true,
+            "sortValues": false,
             "numberedList": false,
             "minWidth": 100
         },
@@ -344,7 +344,7 @@
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
-            "sortValues": true,
+            "sortValues": false,
             "numberedList": false,
             "minWidth": 100
         },
@@ -353,7 +353,7 @@
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
-            "sortValues": true,
+            "sortValues": false,
             "numberedList": false,
             "minWidth": 100
         },
@@ -509,6 +509,36 @@
             "filterType": "integerFilterRange",
             "predicate": "archon:has_dating/archon:to_date",
             "sortByPredicate": "archon:has_dating/archon:to_date",
+            "unit": ""
+        },
+        "weight": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "resourcePredicate": "crm:P43_has_dimension",
+            "valuePredicate": "crm:P90_has_value",
+            "sortByPredicate": "crm:P43_has_dimension/crm:P90_has_value",
+            "typeConstraint": "crm:P2_has_type archon:Weight",
+            "unit": ""
+        },
+        "width": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "resourcePredicate": "crm:P43_has_dimension",
+            "valuePredicate": "crm:P90_has_value",
+            "sortByPredicate": "crm:P43_has_dimension/crm:P90_has_value",
+            "typeConstraint": "crm:P2_has_type archon:Width",
+            "unit": ""
+        },
+        "length": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "resourcePredicate": "crm:P43_has_dimension",
+            "valuePredicate": "crm:P90_has_value",
+            "sortByPredicate": "crm:P43_has_dimension/crm:P90_has_value",
+            "typeConstraint": "crm:P2_has_type archon:Length",
             "unit": ""
         }
     }
