@@ -209,7 +209,7 @@
                     }
                 },
                  "findsByWidth": {
-                    "sparqlQuery": "findsByWeightQuery",
+                    "sparqlQuery": "findsByWidthQuery",
                     "filterTarget": "find",
                     "resultMapper": "mapLineChart",
                     "createChartData": "createSingleLineChartData",
