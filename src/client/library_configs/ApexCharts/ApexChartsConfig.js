@@ -423,6 +423,74 @@ export const createApexBarChartData = ({
   return apexChartOptionsWithData
 }
 
+
+
+export const createApexBoxPlotData = ({
+  resultClass,
+  facetClass,
+  perspectiveState,
+  results,
+  chartTypeObj,
+  resultClassConfig,
+  screenSize
+}) => {
+  // Needs cleaning...
+  const {
+    title,
+    seriesTitle,
+    aCategoryTitle,
+    bCategoryTitle,
+    cCategoryTitle
+  } = resultClassConfig
+  const categories = []
+  const colors = []
+  const data = []
+  const apexChartOptionsWithData = {
+    ...apexBoxPlotOptions,
+    chart: {
+      type: 'boxPlot',
+      width: '100%',
+      height: '100%',
+    },
+    series: [{ data: [{ x: "", y: results }] }],
+    title: {
+          text: '',
+          align: 'left'
+        },
+        plotOptions: {
+          boxPlot: {
+            colors: {
+              upper: '#008FFB',
+              lower: '#FEB019'
+            }
+          }
+        }
+  }
+  return apexChartOptionsWithData
+}
+
+const apexBoxPlotOptions = {
+  // see https://apexcharts.com/docs --> Options
+        xaxis: {
+          type: 'category',
+          labels: {
+            show: true
+          }
+        },
+        title: {
+          text: 'Basic BoxPlot Chart',
+          align: 'left'
+        },
+        plotOptions: {
+          boxPlot: {
+            colors: {
+              upper: '#5C4742',
+              lower: '#A5978B'
+            }
+          }
+        }
+}
+
 export const createApexBarChartAoristictData = ({
   resultClass,
   facetClass,

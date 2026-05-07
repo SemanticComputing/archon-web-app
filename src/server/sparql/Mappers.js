@@ -122,6 +122,12 @@ export const mapTimespanFacet = ({ sparqlBindings, config }) => {
   }
 }
 
+export const mapBoxPlot = sparqlBindings => {
+  const results = sparqlBindings.map(b => Number(b.value.value)) // convert string to number
+  return results
+}
+
+
 export const mapNameSampoResults = sparqlBindings => {
   const results = sparqlBindings.map(b => {
     return {

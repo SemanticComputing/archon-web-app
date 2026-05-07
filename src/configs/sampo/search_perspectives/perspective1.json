@@ -174,15 +174,66 @@
                     "dropdownForChartTypes": false,
                     "chartTypes": [
                         {
-                            "id": "bar",
+                            "id": "aoristic",
                             "createChartData": "createApexBarChartAoristictData"
                         }
                     ]
                 }
             }
         },
-        "findsByNumericProperty": {
+        "findsBoxPlot": {
             "tabID": 5,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "box_plot",
+            "tabIcon": "BarChart",
+            "facetClass": "perspective1",
+            "dropdownForResultClasses": true,
+            "defaultResultClass": "findsByPlotWeights",
+            "resultClasses": {
+                "findsByPlotWeights": {
+                    "sparqlQuery": "findsByPlotWeightsQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapBoxPlot",
+                    "sliceVisibilityThreshold": false,
+                    "dropdownForChartTypes": false,
+                    "chartTypes": [
+                        {
+                            "id": "boxplot",
+                            "createChartData": "createApexBoxPlotData"
+                        }
+                    ]
+                },
+                "findsByPlotLenghts": {
+                    "sparqlQuery": "findsByPlotLengthsQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapBoxPlot",
+                    "sliceVisibilityThreshold": false,
+                    "dropdownForChartTypes": false,
+                    "chartTypes": [
+                        {
+                            "id": "boxplot",
+                            "createChartData": "createApexBoxPlotData"
+                        }
+                    ]
+                },
+                "findsByPlotWidths": {
+                    "sparqlQuery": "findsByPlotWidthsQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapBoxPlot",
+                    "sliceVisibilityThreshold": false,
+                    "dropdownForChartTypes": false,
+                    "chartTypes": [
+                        {
+                            "id": "boxplot",
+                            "createChartData": "createApexBoxPlotData"
+                        }
+                    ]
+                }
+            }
+        },
+        "findsByNumericProperty": {
+            "tabID": 6,
             "component": "ApexCharts",
             "doNotRenderOnMount": true,
             "tabPath": "line_chart",

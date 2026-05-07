@@ -97,6 +97,7 @@
     "recommendations": "recommendations",
     "line_chart": "line chart",
     "aoristic_chart": "aoristic chart",
+    "box_plot": "box plot",
     "share": "share"
   },
   "table": {
@@ -125,7 +126,10 @@
       "findsByCompleteness": "Completeness",
       "findsByLength": "Length",
       "findsByWeight": "Weight",
-      "findsByWidth": "Width"
+      "findsByWidth": "Width",
+      "findsByPlotWeights": "Weight",
+      "findsByPlotWidths": "Width",
+      "findsByPlotLenghts": "Length"
     },
     "findsByWidthXaxis": "Leveys (mm)",
     "findsByLengthXaxis": "Pituus (mm)",
