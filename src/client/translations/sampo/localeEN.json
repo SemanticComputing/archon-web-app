@@ -7,13 +7,13 @@
   "appTitle": {
     "short": "Sampo-UI",
     "mobile": "S-UI",
-    "long": "&nbsp; &nbsp; Sampo-UI &nbsp; &nbsp;",
-    "subheading": ""
+    "long": "&nbsp; &nbsp; ARCH-ON portal &nbsp; &nbsp;",
+    "subheading": "Ampuallae from PAS"
   },
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
   "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",
   "selectPerspective": "Select a perspective to search and browse the knowledge graph:",
-  "mainPageImageLicence": "Images used under license from Shutterstock.com",
+  "mainPageImageLicence": "Images and data provided by the British Museum",
   "backendErrorText": "One of the backend services is not available at the moment. Please try again later.",
   "infoHeader": {
     "toggleInstructions": "Click to show or hide instructions"
