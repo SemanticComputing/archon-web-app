@@ -425,6 +425,38 @@ export const createApexBarChartData = ({
 
 
 
+const getPercentile = (arr, percentile) => {
+  const index = (percentile / 100) * (arr.length - 1)
+  const lower = Math.floor(index)
+  const upper = Math.ceil(index)
+
+  if (lower === upper) return arr[lower]
+
+  return (
+    arr[lower] + (arr[upper] - arr[lower]) * (index - lower)
+  )
+}
+
+const createBoxPlotStats = values => {
+  const sorted = [...values].sort((a, b) => a - b)
+
+  return [
+    sorted[0],                    // min
+    getPercentile(sorted, 25),    // Q1
+    getPercentile(sorted, 50),    // median
+    getPercentile(sorted, 75),    // Q3
+    sorted[sorted.length - 1]     // max
+  ]
+}
+
+const calculateAverage = values => {
+  if (!values.length) return 0
+
+  const sum = values.reduce((acc, value) => acc + value, 0)
+
+  return sum / values.length
+}
+
 export const createApexBoxPlotData = ({
   resultClass,
   facetClass,
@@ -434,39 +466,50 @@ export const createApexBoxPlotData = ({
   resultClassConfig,
   screenSize
 }) => {
-  // Needs cleaning...
   const {
     title,
-    seriesTitle,
-    aCategoryTitle,
-    bCategoryTitle,
-    cCategoryTitle
+    seriesTitle
   } = resultClassConfig
-  const categories = []
-  const colors = []
-  const data = []
-  const apexChartOptionsWithData = {
+
+  // Convert results into numeric array
+  const values = results
+    .map(r => Number(r))
+    .filter(v => !Number.isNaN(v))
+
+  const boxPlotData = createBoxPlotStats(values)
+
+  const average = calculateAverage(values)
+
+  return {
     ...apexBoxPlotOptions,
+
     chart: {
       type: 'boxPlot',
       width: '100%',
       height: '100%',
     },
-    series: [{ data: [{ x: "", y: results }] }],
-    title: {
-          text: '',
-          align: 'left'
-        },
-        plotOptions: {
-          boxPlot: {
-            colors: {
-              upper: '#008FFB',
-              lower: '#FEB019'
-            }
+
+    series: [
+      {
+        name: seriesTitle || 'Distribution',
+        data: [
+          {
+            x: 'Mean: ' + average,
+            y: boxPlotData
           }
+        ]
+      }
+    ],
+
+    plotOptions: {
+      boxPlot: {
+        colors: {
+          upper: '#008FFB',
+          lower: '#FEB019'
         }
+      }
+    }
   }
-  return apexChartOptionsWithData
 }
 
 const apexBoxPlotOptions = {
