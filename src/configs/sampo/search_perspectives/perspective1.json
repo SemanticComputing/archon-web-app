@@ -447,7 +447,7 @@
             "barChartButton": true,
             "pieChartButton": true,
             "containerClass": "ten",
-            "facetType": "list",
+            "facetType": "hierarchical",
             "filterType": "uriFilter",
             "parentProperty": "archon:situated_at",
             "predicate": "archon:found_at_location/archon:situated_at",
