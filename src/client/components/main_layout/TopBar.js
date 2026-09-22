@@ -178,11 +178,6 @@ const TopBar = props => {
       >
         {perspectives.map(perspective => perspective.hideTopPerspectiveButton ? null : renderMobileMenuItem(perspective))}
         <Divider />
-        {renderMobileMenuItem({
-          id: 'feedback',
-          externalUrl: props.layoutConfig.topBar.feedbackLink,
-          label: intl.get('topBar.feedback')
-        })}
         {infoDropdown.map(item => renderInfoItem(item))}
         {topBar.externalInstructions && renderMobileMenuItem({
           id: 'instructions',
@@ -303,11 +298,6 @@ const TopBar = props => {
                 borderLeft: '2px solid white'
               })}
             />
-            {renderDesktopTopMenuItem({
-              id: 'feedback',
-              externalUrl: props.layoutConfig.topBar.feedbackLink,
-              label: intl.get('topBar.feedback')
-            })}
             <TopBarInfoButton rootUrl={props.rootUrl} layoutConfig={layoutConfig} />
             {topBar.externalInstructions && renderDesktopTopMenuItem({
               id: 'instructions',
