@@ -3,7 +3,8 @@
     "rootUrl": "",
     "perspectives": {
         "searchPerspectives": [
-            "perspective1"
+            "ampullae",
+            "visuals"
         ],
         "onlyInstancePages": [
         ]
