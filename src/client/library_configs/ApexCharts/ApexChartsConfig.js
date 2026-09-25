@@ -478,7 +478,7 @@ export const createApexBoxPlotData = ({
 
   const boxPlotData = createBoxPlotStats(values)
 
-  const average = calculateAverage(values)
+  const average = calculateAverage(values).toFixed(2)
 
   return {
     ...apexBoxPlotOptions,
