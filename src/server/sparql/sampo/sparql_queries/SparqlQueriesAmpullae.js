@@ -71,8 +71,11 @@ export const ampullaeProperties = `
     UNION
     {
       ?id archon:has_image ?image__id .
-      ?id archon:has_image ?image__url .
+      BIND(STRAFTER(STR(?id), "http://ldf.fi/archon/ampullae/") AS ?localId)
+      ?id archon:has_image ?oldImageURL .
+      BIND(REPLACE(STR(?oldImageURL), "^.*/", "") AS ?oldImageName)
       ?id archon:has_image ?image__description .
+      BIND(CONCAT('https://static.seco.cs.aalto.fi/archon/images/', STR(?localId), '/', STR(?oldImageName)) AS ?image__url)
     }
 `
 
