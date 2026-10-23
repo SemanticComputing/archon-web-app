@@ -25,7 +25,8 @@
                 "tabPath": "table",
                 "tabIcon": "CalendarViewDay",
                 "propertiesQueryBlock": "ampullaeProperties",
-                "pagesize": 25,
+                "paginatedResultsAlwaysExpandRows": true,
+                "pagesize": 20,
                 "sortBy": null,
                 "sortDirection": null
             },
