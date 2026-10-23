@@ -229,6 +229,35 @@ GROUP BY ?category ?prefLabel
 ORDER BY DESC(?instanceCount)
 `
 
+export const findsByModification = `
+SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) AS ?instanceCount)
+WHERE {
+  <FILTER>
+  {
+    ?find a archon:Archaeological_object .
+    ?find archon:found_at_location ?location .
+    ?location archon:situated_at* ?category .
+
+    FILTER NOT EXISTS {
+      ?category archon:situated_at ?higherConcept .
+    }
+
+    ?category skos:prefLabel ?prefLabel .
+  }
+  UNION
+  {
+    ?find a archon:Archaeological_object .
+    FILTER NOT EXISTS {
+      ?find archon:found_at_location/archon:situated_at* ?location .
+    }
+    BIND("Unknown" AS ?category)
+    BIND("Unknown" AS ?prefLabel)
+  }
+}
+GROUP BY ?category ?prefLabel
+ORDER BY DESC(?instanceCount)
+`
+
 export const findsByLengthQuery = `
   SELECT ?category
   (COUNT(DISTINCT ?find) as ?count)

@@ -215,7 +215,7 @@ export const createPopUpContentFindSampo = ({ data }) => {
   const headingLink = document.createElement('a')
   headingLink.style.cssText = 'cursor: pointer; text-decoration: underline'
   headingLink.textContent = data.prefLabel.prefLabel
-  headingLink.addEventListener('click', () => history.push(data.dataProviderUrl))
+  headingLink.addEventListener('click', () => history.push(data.prefLabel.dataProviderUrl))
   heading.appendChild(headingLink)
   container.appendChild(heading)
   if (has(data, 'objectType')) {
