@@ -56,8 +56,25 @@
             "tabIcon": "PieChart",
             "facetClass": "ampullae",
             "dropdownForResultClasses": true,
-            "defaultResultClass": "findsByCounty",
+            "defaultResultClass": "findsByRegion",
             "resultClasses": {
+                "findsByRegion": {
+                    "sparqlQuery": "findsByRegion",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        },
+                                                {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        }
+                    ]
+                },
                 "findsByCounty": {
                     "sparqlQuery": "findsByCounty",
                     "filterTarget": "find",

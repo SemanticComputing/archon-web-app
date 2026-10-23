@@ -120,6 +120,7 @@
     "pie": "Pie chart",
     "bar": "Bar chart",
     "resultClasses": {
+      "findsByRegion": "Region",
       "findsByCounty": "County",
       "findsByVisual": "Visual element",
       "findsBySpencer": "Spencer type",
