@@ -24,11 +24,13 @@
       "info": "Info",
       "blog": "Project blog",
       "blogUrl": "https://seco.cs.aalto.fi/projects/arch-on/",
-      "aboutThePortal": "About the Portal"
+      "aboutThePortal": "About the Portal",
+      "aboutExternalUrl": "https://seco.cs.aalto.fi/projects/arch-on/about_eng.pdf"
     },
     "searchBarPlaceHolder": "Search all content",
     "searchBarPlaceHolderShort": "Search",
-    "instructions": "instructions"
+    "instructions": "instructions",
+    "instructionsUrl": "https://seco.cs.aalto.fi/projects/arch-on/archonsampo-user-manual.pdf"
   },
   "facetBar": {
     "results": "Results",

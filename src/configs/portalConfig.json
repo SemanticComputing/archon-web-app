@@ -51,8 +51,8 @@
             "hideLogoTextOnMobile": true,
             "showLanguageButton": false,
             "feedbackLink": "https://link.webropolsurveys.com/...",
-            "externalInstructions": false,
-            "externalAboutPage": false,
+            "externalInstructions": true,
+            "externalAboutPage": true,
             "showSearchField": false,
             "reducedHeight": 48,
             "defaultHeight": 64,
@@ -61,6 +61,8 @@
                 {
                     "id": "about",
                     "translatedText": "aboutThePortal",
+                    "externalLink": true,
+                    "translatedUrl": "aboutExternalUrl",
                     "internalLink": "/about"
                 },
                 {
